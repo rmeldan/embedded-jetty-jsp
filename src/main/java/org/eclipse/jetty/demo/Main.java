@@ -18,32 +18,20 @@
 
 package org.eclipse.jetty.demo;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.SimpleInstanceManager;
+import com.acme.DateServlet;
+import org.apache.tomcat.*;
 import org.apache.tomcat.util.scan.StandardJarScanner;
 import org.eclipse.jetty.apache.jsp.JettyJasperInitializer;
 import org.eclipse.jetty.jsp.JettyJspServlet;
-import org.eclipse.jetty.server.ConnectionFactory;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.servlet.DefaultServlet;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.server.*;
+import org.eclipse.jetty.servlet.*;
 import org.eclipse.jetty.util.component.AbstractLifeCycle;
-import org.eclipse.jetty.util.log.JavaUtilLog;
-import org.eclipse.jetty.util.log.Log;
+import org.eclipse.jetty.util.log.*;
 
-import com.acme.DateServlet;
+import java.io.*;
+import java.net.*;
+import java.util.logging.*;
+import java.util.logging.Logger;
 
 /**
  * Example of using JSP's with embedded jetty and using a
@@ -128,6 +116,7 @@ public class Main
 
     public void start() throws Exception
     {
+        //Change
         server = new Server();
         ServerConnector connector = connector();
         server.addConnector(connector);
